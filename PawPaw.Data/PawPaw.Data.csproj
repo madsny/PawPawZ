@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommentRepository.cs" />
+    <Compile Include="GroupRepository.cs" />
     <Compile Include="IDataSettings.cs" />
     <Compile Include="PostRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

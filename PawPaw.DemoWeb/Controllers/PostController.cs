@@ -20,13 +20,13 @@ namespace PawPaw.DemoWeb.Controllers
             return View(posts);
         }
 
-        public ActionResult Create()
+        public ActionResult New()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(Post post)
+        public ActionResult New(Post post)
         {
             var id = _postRepository.Create(post);
             return RedirectToAction("Get", new { Id = id });

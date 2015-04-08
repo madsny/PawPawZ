@@ -14,13 +14,14 @@ namespace PawPaw.DemoWeb
             routes.MapRoute(
                 name: "Details",
                 url: "{controller}/{id}",
-                defaults: new {action = "Get"}
+                defaults: new {action = "Get"},
+                constraints: new { id = @"\d+" }
                 );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Post", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Group", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

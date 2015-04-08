@@ -1,7 +1,7 @@
 ﻿@model PawPaw.Posts.Post
 
-<h2>Index</h2>
-@using (Html.BeginForm("Create", "Post", FormMethod.Post))
+<h2>New post</h2>
+@using (Html.BeginForm("New", "Post", FormMethod.Post))
 {
     <h4>Post</h4>
     @Html.LabelFor(model => model.Body, "body")
