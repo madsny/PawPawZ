@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comments\Comment.cs" />
+    <Compile Include="Comments\ICommentRepository.cs" />
     <Compile Include="Posts\IPostRepository.cs" />
     <Compile Include="Posts\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

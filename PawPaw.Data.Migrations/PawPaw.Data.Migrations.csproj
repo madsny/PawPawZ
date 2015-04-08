@@ -50,6 +50,7 @@
     <Compile Include="Migrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="v0_\1\_201504081010_AddPostTable.cs" />
+    <Compile Include="v0_\1\_201504081230_AddCommentsTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
