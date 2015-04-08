@@ -2,7 +2,7 @@
 {
     public interface IPostRepository
     {
-        Post Create(Post post);
+        int Create(Post post);
         Post Get(int id);
     }
 }

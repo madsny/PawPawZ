@@ -1,0 +1,10 @@
+﻿@model PawPaw.Posts.Post
+
+<h2>Index</h2>
+@using (Html.BeginForm("CreatePost", "Home", FormMethod.Post))
+{
+    <h4>Post</h4>
+    @Html.LabelFor(model => model.Body, "body")
+    @Html.TextAreaFor(model => model.Body)
+    <input type="submit" value="Create" />
+}

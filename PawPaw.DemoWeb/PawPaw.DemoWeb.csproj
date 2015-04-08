@@ -156,6 +156,22 @@
       <Project>{E305403D-5556-448B-B837-DA3B70DA3A11}</Project>
       <Name>PawPaw.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PawPaw\PawPaw.csproj">
+      <Project>{FA7270A2-BA98-41C1-9AD3-D1ECD4B271ED}</Project>
+      <Name>PawPaw</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\CreatePost.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Post.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

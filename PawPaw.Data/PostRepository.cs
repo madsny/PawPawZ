@@ -8,16 +8,14 @@ namespace PawPaw.Data
     {
         public PostRepository(IDataSettings settings) : base(settings) { }
 
-        public Post Create(Post post)
+        public int Create(Post post)
         {
             const string sql = @"
 INSERT INTO Post(Body) 
 OUTPUT Inserted.Id
 VALUES(@Body);";
 
-
-            var id = Run(con => con.Query<int>(sql, post)).Single();
-            return Get(id);
+            return Run(con => con.Query<int>(sql, post)).Single();
         }
 
         public Post Get(int id)
