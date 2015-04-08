@@ -1,1 +1,10 @@
-﻿@Html.ActionLink("Create post", "CreatePost")
+﻿@model IEnumerable<PawPaw.Posts.Post>
+    
+                      <ul>
+                          @foreach (var post in @Model)
+                          {
+                              <li>@Html.ActionLink(post.Id.ToString(), "post", new{Id=post.Id})</li>
+                          }
+                      </ul>
+
+@Html.ActionLink("Create post", "CreatePost")

@@ -16,7 +16,8 @@ namespace PawPaw.DemoWeb.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var posts = _postRepository.GetAll();
+            return View(posts);
         }
         
         public ActionResult CreatePost()

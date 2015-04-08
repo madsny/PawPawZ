@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Dapper;
 using PawPaw.Posts;
 
@@ -23,6 +24,13 @@ VALUES(@Body);";
             const string sql = @"SELECT * FROM Post WHERE Id = @Id";
 
             return Run(con => con.Query<Post>(sql, new {Id = id})).SingleOrDefault();
+        }
+
+        public IEnumerable<Post> GetAll()
+        {
+            const string sql = @"SELECT * FROM Post";
+
+            return Run(con => con.Query<Post>(sql));
         }
     }
 }
