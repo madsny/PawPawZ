@@ -1,0 +1,10 @@
+﻿@model PawPaw.DemoWeb.Models.CreateCommentViewModel
+
+@using (Html.BeginForm("Create", "Comment", FormMethod.Post))
+{
+    <h4>New Comment</h4>
+    @Html.LabelFor(model => model.Comment.Body, "body")
+    @Html.TextAreaFor(model => model.Comment.Body)
+    <input type="submit" value="Create" />
+}
+

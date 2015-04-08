@@ -1,0 +1,8 @@
+﻿@model IEnumerable<PawPaw.Comments.Comment>
+    <h3>Comments</h3>
+<ul>
+    @foreach (var comment in @Model)
+    {
+        <li>@comment.Body</li>
+    }
+</ul>

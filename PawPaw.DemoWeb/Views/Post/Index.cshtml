@@ -3,8 +3,8 @@
                       <ul>
                           @foreach (var post in @Model)
                           {
-                              <li>@Html.ActionLink(post.Id.ToString(), "post", new{Id=post.Id})</li>
+                              <li>@Html.ActionLink(post.Id.ToString(), "Get", new{Id=post.Id})</li>
                           }
                       </ul>
 
-@Html.ActionLink("Create post", "CreatePost")
+@Html.ActionLink("Create post", "Create")

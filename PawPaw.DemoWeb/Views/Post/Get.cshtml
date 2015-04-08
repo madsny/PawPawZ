@@ -1,0 +1,15 @@
+﻿@model PawPaw.Posts.Post
+<div>
+    <h1>@Model.Id</h1>
+    <p>@Model.Body</p>
+    <div>
+        @{
+            Html.RenderAction("GetByPost", "Comment", new {PostId = Model.Id});
+        }
+    </div>
+    @{
+        Html.RenderAction("New", "Comment", new { PostId = Model.Id });
+    }
+    @Html.ActionLink("Back", "Index")
+</div>
+
