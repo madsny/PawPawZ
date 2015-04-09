@@ -6,10 +6,12 @@ namespace PawPaw.DemoWeb.Controllers
     public class PostController : Controller
     {
         private readonly IPostRepository _postRepository;
+        private readonly PostStreamReader _streamReader;
 
-        public PostController(IPostRepository postRepository)
+        public PostController(IPostRepository postRepository,PostStreamReader streamReader)
         {
             _postRepository = postRepository;
+            _streamReader = streamReader;
         }
 
         public ActionResult Index()
@@ -21,6 +23,13 @@ namespace PawPaw.DemoWeb.Controllers
         public ActionResult New()
         {
             return View();
+        }
+
+        [Route("group/{groupId:int}/posts")]
+        public ActionResult GetByGroup(int groupId)
+        {
+            var posts = _streamReader.GetPostByGroup(groupId);
+            return PartialView("Index", posts);
         }
 
         [HttpPost]
