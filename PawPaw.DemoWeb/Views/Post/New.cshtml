@@ -1,10 +1,10 @@
-﻿@model PawPaw.Core.Post
+﻿@model PawPaw.DemoWeb.Models.CreatePostViewModel
 
 <h2>New post</h2>
-@using (Html.BeginForm("New", "Post", FormMethod.Post))
+@using (Html.BeginForm("New", "Post", new{GroupId = Model.GroupId}, FormMethod.Post))
 {
     <h4>Post</h4>
-    @Html.LabelFor(model => model.Body, "body")
-    @Html.TextAreaFor(model => model.Body)
+    @Html.LabelFor(model => model.Post.Body, "body")
+    @Html.TextAreaFor(model => model.Post.Body)
     <input type="submit" value="Create" />
 }

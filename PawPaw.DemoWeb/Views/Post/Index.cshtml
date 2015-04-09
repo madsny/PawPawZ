@@ -1,10 +1,12 @@
-﻿@model IEnumerable<PawPaw.Core.Post>
-    
-                      <ul>
-                          @foreach (var post in @Model)
-                          {
-                              <li>@Html.ActionLink(post.Id.ToString(), "Get", new{Id=post.Id})</li>
-                          }
-                      </ul>
+﻿@model PawPaw.DemoWeb.Models.PostListingViewModel
 
-@Html.ActionLink("Create post", "New")
+<ul>
+    @foreach (var post in @Model.Posts)
+    {
+        <li>@Html.ActionLink(string.Format("{0} - {1}", post.Id, post.Body), "Get", new { Id = post.Id })</li>
+    }
+</ul>
+
+@{
+    Html.RenderAction("New", new{GroupId = Model.GroupId});
+}

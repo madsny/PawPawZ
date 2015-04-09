@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using PawPaw.Core;
+using PawPaw.DemoWeb.Models;
 
 namespace PawPaw.DemoWeb.Controllers
 {
@@ -7,35 +8,38 @@ namespace PawPaw.DemoWeb.Controllers
     {
         private readonly IPostRepository _postRepository;
         private readonly PostStreamReader _streamReader;
+        private readonly PostWriter _postWriter;
 
-        public PostController(IPostRepository postRepository,PostStreamReader streamReader)
+        public PostController(IPostRepository postRepository, PostStreamReader streamReader, PostWriter postWriter)
         {
             _postRepository = postRepository;
             _streamReader = streamReader;
+            _postWriter = postWriter;
         }
 
         public ActionResult Index()
         {
             var posts = _postRepository.GetAll();
-            return View(posts);
+            return View(new PostListingViewModel(posts));
         }
 
-        public ActionResult New()
-        {
-            return View();
-        }
 
         [Route("group/{groupId:int}/posts")]
         public ActionResult GetByGroup(int groupId)
         {
             var posts = _streamReader.GetPostByGroup(groupId);
-            return PartialView("Index", posts);
+            return PartialView("Index", new PostListingViewModel(posts, groupId));
+        }
+
+        public ActionResult New(int? groupId)
+        {
+            return PartialView(new CreatePostViewModel { GroupId = groupId });
         }
 
         [HttpPost]
-        public ActionResult New(Post post)
+        public ActionResult New(Post post, int? groupId)
         {
-            var id = _postRepository.Create(post);
+            var id = groupId.HasValue ? _postWriter.CreatePost(post, groupId.Value) : _postRepository.Create(post);
             return RedirectToAction("Get", new { Id = id });
         }
 
