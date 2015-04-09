@@ -39,12 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comments\Comment.cs" />
-    <Compile Include="Comments\ICommentRepository.cs" />
-    <Compile Include="Groups\Group.cs" />
-    <Compile Include="Groups\IGroupRepository.cs" />
-    <Compile Include="Posts\IPostRepository.cs" />
-    <Compile Include="Posts\Post.cs" />
+    <Compile Include="Core\Comment.cs" />
+    <Compile Include="Core\ICommentRepository.cs" />
+    <Compile Include="Core\Group.cs" />
+    <Compile Include="Core\IGroupRepository.cs" />
+    <Compile Include="Core\IPostRepository.cs" />
+    <Compile Include="Core\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿namespace PawPaw.Posts
+﻿namespace PawPaw.Core
 {
     public class Post
     {

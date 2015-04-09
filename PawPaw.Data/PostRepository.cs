@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Dapper;
-using PawPaw.Posts;
+using PawPaw.Core;
 
 namespace PawPaw.Data
 {

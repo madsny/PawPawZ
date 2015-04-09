@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using PawPaw.Comments;
+using PawPaw.Core;
 using PawPaw.Data;
 using PawPaw.DemoWeb.Models;
 using PawPaw.DemoWeb.Settings;

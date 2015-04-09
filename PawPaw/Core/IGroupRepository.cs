@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PawPaw.Groups
+namespace PawPaw.Core
 {
     public interface IGroupRepository
     {

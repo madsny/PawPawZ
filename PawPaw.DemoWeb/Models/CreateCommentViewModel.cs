@@ -1,4 +1,4 @@
-﻿using PawPaw.Comments;
+﻿using PawPaw.Core;
 
 namespace PawPaw.DemoWeb.Models
 {

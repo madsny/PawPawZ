@@ -1,4 +1,4 @@
-﻿namespace PawPaw.Groups
+﻿namespace PawPaw.Core
 {
     public class Group
     {

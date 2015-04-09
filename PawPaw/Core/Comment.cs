@@ -1,4 +1,4 @@
-﻿namespace PawPaw.Comments
+﻿namespace PawPaw.Core
 {
     public class Comment
     {

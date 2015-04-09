@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
+using PawPaw.Core;
 using PawPaw.Data;
 using PawPaw.DemoWeb.Settings;
-using PawPaw.Posts;
 
 namespace PawPaw.DemoWeb.Controllers
 {
