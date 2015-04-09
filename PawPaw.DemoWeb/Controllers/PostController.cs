@@ -1,17 +1,15 @@
 ﻿using System.Web.Mvc;
 using PawPaw.Core;
-using PawPaw.Data;
-using PawPaw.DemoWeb.Settings;
 
 namespace PawPaw.DemoWeb.Controllers
 {
     public class PostController : Controller
     {
-        private readonly PostRepository _postRepository;
+        private readonly IPostRepository _postRepository;
 
-        public PostController()
+        public PostController(IPostRepository postRepository)
         {
-            _postRepository = new PostRepository(new AppConfiguration());
+            _postRepository = postRepository;
         }
 
         public ActionResult Index()

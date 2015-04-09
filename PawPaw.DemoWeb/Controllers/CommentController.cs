@@ -1,18 +1,16 @@
 ﻿using System.Web.Mvc;
 using PawPaw.Core;
-using PawPaw.Data;
 using PawPaw.DemoWeb.Models;
-using PawPaw.DemoWeb.Settings;
 
 namespace PawPaw.DemoWeb.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly CommentRepository _commentRepository;
+        private readonly ICommentRepository _commentRepository;
 
-        public CommentController()
+        public CommentController(ICommentRepository commentRepository)
         {
-            _commentRepository = new CommentRepository(new AppConfiguration());
+            _commentRepository = commentRepository;
         }
 
         [Route("post/{postId:int}/comment")]

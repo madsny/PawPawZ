@@ -1,18 +1,15 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using PawPaw.Core;
-using PawPaw.Data;
-using PawPaw.DemoWeb.Settings;
 
 namespace PawPaw.DemoWeb.Controllers
 {
     public class GroupController : Controller
     {
-        private readonly GroupRepository _groupRepository;
+        private readonly IGroupRepository _groupRepository;
 
-        public GroupController()
+        public GroupController(IGroupRepository groupRepository)
         {
-            _groupRepository = new GroupRepository(new AppConfiguration());
+            _groupRepository = groupRepository;
         }
 
         public ActionResult Index()
