@@ -5,11 +5,11 @@ namespace PawPaw.DemoWeb.Controllers
 {
     public class GroupController : Controller
     {
-        private readonly IGroupRepository _groupRepository;
+        private readonly GroupWriter _groupWriter;
 
-        public GroupController(IGroupRepository groupRepository)
+        public GroupController(GroupWriter groupWriter)
         {
-            _groupRepository = groupRepository;
+            _groupWriter = groupWriter;
         }
 
         public ActionResult New()
@@ -20,14 +20,8 @@ namespace PawPaw.DemoWeb.Controllers
         [HttpPost]
         public ActionResult New(Group group)
         {
-            var id = _groupRepository.Create(group);
+            var id = _groupWriter.Create(group);
             return RedirectToAction("Index", "Home", new {GroupId= id});
-        }
-
-        public ActionResult Get(int id)
-        {
-            var group = _groupRepository.Get(id);
-            return View(group);
         }
     }
 }

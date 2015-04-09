@@ -1,8 +1,0 @@
-﻿@model PawPaw.Core.Group
-
-<h1>@Model.Name</h1>
-<p>@Model.Description</p>
-
-@{
-    Html.RenderAction("GetByGroup", "Post", new{GroupId = Model.Id});
-}

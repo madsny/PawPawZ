@@ -204,9 +204,6 @@
     <Content Include="Views\Comment\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Group\Get.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Group\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
