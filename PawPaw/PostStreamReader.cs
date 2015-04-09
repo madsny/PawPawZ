@@ -16,5 +16,10 @@ namespace PawPaw
         {
             return _postRepository.GetByGroupId(groupId);
         }
+
+        public Post GetPost(int postId)
+        {
+            return _postRepository.Get(postId);
+        }
     }
 }

@@ -1,0 +1,24 @@
+﻿body {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+body:before,
+body:after {
+    content: " ";
+    display: table;
+}
+
+body:after {
+    clear: both;
+}
+
+.group-menu {
+    width: 24%;
+    float: left;
+}
+
+.main-area {
+    width: 74%;
+    float: right;
+}

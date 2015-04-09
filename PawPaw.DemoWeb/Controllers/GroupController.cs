@@ -12,12 +12,6 @@ namespace PawPaw.DemoWeb.Controllers
             _groupRepository = groupRepository;
         }
 
-        public ActionResult Index()
-        {
-            var groups = _groupRepository.GetAll();
-            return View(groups);
-        }
-
         public ActionResult New()
         {
             return View();
@@ -26,8 +20,8 @@ namespace PawPaw.DemoWeb.Controllers
         [HttpPost]
         public ActionResult New(Group group)
         {
-            _groupRepository.Create(group);
-            return RedirectToAction("Index");
+            var id = _groupRepository.Create(group);
+            return RedirectToAction("Index", "Home", new {GroupId= id});
         }
 
         public ActionResult Get(int id)

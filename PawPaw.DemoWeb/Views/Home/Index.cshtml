@@ -1,0 +1,47 @@
+﻿@model PawPaw.DemoWeb.Models.HomeViewModel
+
+<div>
+    <nav class="group-menu">
+        <ul>
+            @foreach (var group in Model.Groups)
+            {
+                <li>@Html.ActionLink(group.Name, "Index", new {GroupId = group.Id})</li>
+            }
+        </ul>
+        @Html.ActionLink("Add Group", "New", "Group")
+    </nav>
+    <div class="main-area">
+        <header>
+            @if (Model.CurrentGroup != null)
+            {
+                <h1>@Model.CurrentGroup.Name</h1>
+                <p>@Model.CurrentGroup.Description</p>
+            }
+            else
+            {
+                <h1>No group selected</h1>
+            }
+        </header>
+        @if (Model.CurrentGroup != null)
+        {
+            <section class="new-post">
+                @using (Html.BeginForm("Index", "Post", new { GroupId = Model.CurrentGroup.Id }, FormMethod.Post))
+                {
+                    <h4>New Post</h4>
+                    @Html.LabelFor(model => model.Post.Body, "Body")
+                    @Html.TextAreaFor(model => model.Post.Body)
+                    <input type="submit" value="Create" />
+                }
+            </section>
+        }
+        <section class="posts">
+            <h2>Posts</h2>
+            <ul>
+                @foreach (var post in Model.Posts)
+                {
+                    <li>@Html.ActionLink(post.Body, "Get", "Post", new{Id=post.Id}) </li>
+                }
+            </ul>
+        </section>
+    </div>
+</div>

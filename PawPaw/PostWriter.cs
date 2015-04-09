@@ -14,14 +14,17 @@ namespace PawPaw
             _groupRepository = groupRepository;
         }
 
-        public int CreatePost(Post post, int groupId)
+        public int CreatePost(Post post, int? groupId)
         {
             int postId;
             using (var transaction = new TransactionScope())
             {
                 postId = _postRepository.Create(post);
 
-                _postRepository.AssociateWithGroup(postId, groupId);
+                if (groupId.HasValue)
+                {
+                    _postRepository.AssociateWithGroup(postId, groupId.Value);
+                }
                 transaction.Complete();
 
             }
