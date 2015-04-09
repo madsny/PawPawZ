@@ -6,12 +6,12 @@ namespace PawPaw
     public class PostWriter
     {
         private readonly IPostRepository _postRepository;
-        private readonly IGroupRepository _groupRepository;
+        private readonly ICommentRepository _commentRepository;
 
-        public PostWriter(IPostRepository postRepository, IGroupRepository groupRepository)
+        public PostWriter(IPostRepository postRepository, ICommentRepository commentRepository )
         {
             _postRepository = postRepository;
-            _groupRepository = groupRepository;
+            _commentRepository = commentRepository;
         }
 
         public int CreatePost(Post post, int? groupId)
@@ -31,5 +31,9 @@ namespace PawPaw
             return postId;
         }
 
+        public void CreateComment(int postId, Comment comment)
+        {
+            _commentRepository.Create(postId, comment);
+        }
     }
 }

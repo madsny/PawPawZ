@@ -39,7 +39,7 @@
             <ul>
                 @foreach (var post in Model.Posts)
                 {
-                    <li>@Html.ActionLink(post.Body, "Get", "Post", new{Id=post.Id}) </li>
+                    <li>@Html.ActionLink(post.Body, "Get", "Post",  new{Id= post.Id}, null) </li>
                 }
             </ul>
         </section>

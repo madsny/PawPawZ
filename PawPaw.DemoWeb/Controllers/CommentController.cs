@@ -6,17 +6,19 @@ namespace PawPaw.DemoWeb.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly ICommentRepository _commentRepository;
+        private readonly PostWriter _postWriter;
+        private readonly PostStreamReader _postStreamReader;
 
-        public CommentController(ICommentRepository commentRepository)
+        public CommentController(PostWriter postWriter, PostStreamReader postStreamReader)
         {
-            _commentRepository = commentRepository;
+            _postWriter = postWriter;
+            _postStreamReader = postStreamReader;
         }
 
         [Route("post/{postId:int}/comment")]
         public ActionResult GetByPost(int postId)
         {
-            var comments = _commentRepository.GetByPost(postId);
+            var comments = _postStreamReader.GetComments(postId);
             return PartialView(comments);
         }
 
@@ -30,7 +32,7 @@ namespace PawPaw.DemoWeb.Controllers
         [Route("post/{postId:int}/comment")]
         public ActionResult Create(int postId, Comment comment)
         {
-            _commentRepository.Create(postId, comment);
+            _postWriter.CreateComment(postId, comment);
             return RedirectToAction("Get", "Post", new{Id=postId});
         }
     }
