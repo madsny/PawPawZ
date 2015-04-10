@@ -8,9 +8,11 @@ namespace PawPaw.Data.Migrations.v0_._1
     {
         public override void Up()
         {
-            Execute.Sql("DELETE FROM Comment;" +
-                        "DELETE FROM GroupToPost;" +
-                        "DELETE FROM POST;");
+            Execute.Sql(@"
+DELETE FROM Comment;
+DELETE FROM GroupToPost;
+DELETE FROM Post;
+");
 
             Alter.Table("Post")
                 .AddColumn("Created").AsDateTime().NotNullable()

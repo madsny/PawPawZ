@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using PawPaw.Core;
-using PawPaw.DemoWeb.Models;
 
 namespace PawPaw.DemoWeb.Controllers
 {
@@ -19,7 +18,7 @@ namespace PawPaw.DemoWeb.Controllers
         [HttpPost]
         public ActionResult Index(Post post, int? groupId)
         {
-            var id = _postWriter.CreatePost(post, groupId);
+            var id = _postWriter.CreatePost(post.Body, groupId);
             return RedirectToAction("Get", new { Id = id });
         }
 

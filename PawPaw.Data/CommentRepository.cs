@@ -16,18 +16,19 @@ namespace PawPaw.Data
             return Run(con => con.Query<Comment>(sql, new {PostId = postId}));
         }
 
-        public int Create(int postId, Comment comment)
+        public int Create(int postId, Comment comment, int userId)
         {
             const string sql = @"
-INSERT INTO Comment(Body, PostId, Created)
+INSERT INTO Comment(Body, PostId, Created, CreatedBy)
 OUTPUT Inserted.Id
-VALUES(@Body, @PostId, @Created);
+VALUES(@Body, @PostId, @Created, @UserId);
 UPDATE Post
 SET Modified = @Created
 WHERE Id = @PostId";
 
             var param = new DynamicParameters(comment);
             param.Add("PostId", postId);
+            param.Add("UserId", userId);
 
             return Run(con => con.Query<int>(sql, param)).Single();
         }

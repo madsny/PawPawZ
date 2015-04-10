@@ -10,14 +10,17 @@ namespace PawPaw.Data
     {
         public PostRepository(IDataSettings settings) : base(settings) { }
 
-        public int Create(Post post)
+        public int Create(Post post, int userId)
         {
             const string sql = @"
-INSERT INTO Post(Body, Created) 
+INSERT INTO Post(Body, Created, CreatedBy) 
 OUTPUT Inserted.Id
-VALUES(@Body, @Created);";
+VALUES(@Body, @Created, @UserId);";
 
-            return Run(con => con.Query<int>(sql, post)).Single();
+            var param = new DynamicParameters(post);
+            param.Add("UserId", userId);
+
+            return Run(con => con.Query<int>(sql, param)).Single();
         }
 
         public Post Get(int id)
@@ -54,5 +57,29 @@ WHERE GroupId = @GroupId";
 
             return Run(con => con.Query<Post>(sql, new {GroupId = groupId}));
         }
+
+        public Post GetByExternalId(string externalId)
+        {
+            const string sql = @"
+SELECT Post.* FROM
+Post
+INNER JOIN ExternalIdToPost ON Post.Id = ExternalIdToPost.PostId
+WHERE ExternalIdToPost.ExternalId = @ExternalId";
+
+            return Run(con => con.Query<Post>(sql, new {ExternalId = externalId})).SingleOrDefault();
+
+        }
+
+        public void AssociateWithExternalId(int postId, string externalId)
+        {
+            const string sql = @"
+INSERT INTO 
+ExternalIdToPost(ExternalId, PostId)
+VALUES(@ExternalId, @PostId)";
+
+            Run(con => con.Execute(sql, new {ExternalId = externalId, PostId = postId}));
+        }
+
+
     }
 }
