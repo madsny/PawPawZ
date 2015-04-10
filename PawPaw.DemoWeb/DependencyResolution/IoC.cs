@@ -27,7 +27,7 @@ namespace PawPaw.DemoWeb.DependencyResolution {
             return new Container(c =>
             {
                 c.AddRegistry<DefaultRegistry>();
-                c.AddRegistry(new PawPawRegistry(new AppConfiguration()));
+                c.AddRegistry(new PawPawRegistry(new AppConfiguration(), new FakeAuthIdentityContext()));
             });
         }
     }

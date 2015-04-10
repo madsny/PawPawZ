@@ -12,6 +12,9 @@
     </nav>
     <div class="main-area">
         <header>
+            <div class="user-info">
+                @Model.User.Username
+            </div>
             @if (Model.CurrentGroup != null)
             {
                 <h1>@Model.CurrentGroup.Name</h1>

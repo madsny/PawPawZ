@@ -53,7 +53,8 @@
     <Compile Include="v0_\1\_201504081230_AddCommentTable.cs" />
     <Compile Include="v0_\1\_201504081410_AddGroupTable.cs" />
     <Compile Include="v0_\1\_201504081438_AddGroupToPostTable.cs" />
-    <Compile Include="v0_\2\_201504101047_AddDatesToPostAndComment.cs" />
+    <Compile Include="v0_\1\_201504101047_AddDatesToPostAndComment.cs" />
+    <Compile Include="v0_\1\_201504101330_AddUserTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

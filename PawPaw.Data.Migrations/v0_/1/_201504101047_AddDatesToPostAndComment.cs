@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentMigrator;
 
-namespace PawPaw.Data.Migrations.v0_._2
+namespace PawPaw.Data.Migrations.v0_._1
 {
     [Migration(201504101047)]
     public class _201504101047_AddDatesToPostAndComment : Migration

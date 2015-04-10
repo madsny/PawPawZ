@@ -16,5 +16,6 @@ namespace PawPaw.DemoWeb.Models
         public IEnumerable<Post> Posts { get; set; }
         public Group CurrentGroup { get; set; }
         public Post Post { get; set; }
+        public User User { get; set; }
     }
 }

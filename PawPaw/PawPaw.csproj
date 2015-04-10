@@ -46,11 +46,16 @@
     <Compile Include="Core\IGroupRepository.cs" />
     <Compile Include="Core\IPostRepository.cs" />
     <Compile Include="Core\Post.cs" />
+    <Compile Include="Core\User.cs" />
     <Compile Include="GroupReader.cs" />
     <Compile Include="GroupWriter.cs" />
+    <Compile Include="Users\IIdentityContext.cs" />
+    <Compile Include="Users\IUserContext.cs" />
     <Compile Include="PostWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PostStreamReader.cs" />
+    <Compile Include="Users\IUserRepository.cs" />
+    <Compile Include="Users\UserContext.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
