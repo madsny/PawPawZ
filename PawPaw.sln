@@ -11,13 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawPaw.Data.Migrations", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawPaw.Tests", "PawPaw.Tests\PawPaw.Tests.csproj", "{C2B96D96-0383-4683-A165-8DDFFBEF2C93}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{48DF6621-A9E5-40AA-A543-07BB274B0799}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawPaw.DemoWeb", "PawPaw.DemoWeb\PawPaw.DemoWeb.csproj", "{044C4BA0-108D-4D71-AC76-F3C3E751EAB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructureMapContrib.PawPaw", "StructureMapContrib.PawPaw\StructureMapContrib.PawPaw.csproj", "{08D23AC1-BB37-485C-AB5D-95E639D66B9D}"

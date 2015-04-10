@@ -129,10 +129,17 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\PostController.cs" />
     <Compile Include="DependencyResolution\DemoWebDependencyResolverModule.cs" />
     <Compile Include="DependencyResolution\DemoWebRegistry.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
+    <Compile Include="DependencyResolution\ControllerConvention.cs" />
+    <Compile Include="DependencyResolution\DefaultRegistry.cs" />
+    <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
+    <Compile Include="Filters\FakeAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,6 +147,7 @@
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\AppConfiguration.cs" />
+    <Compile Include="Settings\FakeAuthIdentityContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -201,6 +209,9 @@
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\LogIn\Index.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -229,18 +240,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
-  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
-    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
-    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

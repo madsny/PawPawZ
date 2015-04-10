@@ -12,6 +12,9 @@
     </nav>
     <div class="main-area">
         <header>
+            <div class="user-info">
+                @Model.User.Username
+            </div>
             @if (Model.CurrentGroup != null)
             {
                 <h1>@Model.CurrentGroup.Name</h1>
@@ -39,7 +42,7 @@
             <ul>
                 @foreach (var post in Model.Posts)
                 {
-                    <li>@Html.ActionLink(post.Body, "Get", "Post",  new{Id= post.Id}, null) </li>
+                    <li>@Html.ActionLink(post.Body, "Get", "Post",  new{Id= post.Id}, null) (Opprettet @post.Created.ToString("g")@(post.Modified.HasValue ? string.Format(", endret {0}", post.Modified.Value.ToString("g")) : ""))</li>
                 }
             </ul>
         </section>
