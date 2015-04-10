@@ -7,14 +7,14 @@ namespace EPiServerContrib.PawPaw
 {
     public static class SocialContentExtensions
     {
-        public static int CreatePost(this ISocialContent content, Post post)
+        public static int AddComment(this ISocialContent content, Post post)
         {
             var postWriter = ServiceLocator.Current.GetInstance<PostWriter>();
             var groupId = 1; // todo Gruppeid?
             return postWriter.CreatePost(post, null);
         }
 
-        public static IEnumerable<Post> GetPosts(this ISocialContent content)
+        public static IEnumerable<Post> GetComments(this ISocialContent content)
         {
             var postReader = ServiceLocator.Current.GetInstance<PostStreamReader>();;
             var groupId = 1; // todo GruppeId?

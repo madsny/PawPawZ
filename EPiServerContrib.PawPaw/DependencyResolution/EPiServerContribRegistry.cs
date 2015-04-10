@@ -11,7 +11,7 @@ namespace EPiServerContrib.PawPaw.DependencyResolution
         {
             For<PostWriter>().Use<PostWriter>();
             For<PostStreamReader>().Use<PostStreamReader>();
-            IncludeRegistry(new PawPawRegistry(new AppConfiguration()));
+            IncludeRegistry(new PawPawRegistry(new AppConfiguration(), new FakeAuthIdentityContext()));
         }
     }
 }

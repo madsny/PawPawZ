@@ -109,3 +109,5 @@ UpgradeLog*.XML
 
 # Local credentials
 Credentials.Dev.config
+
+PawPaw.Alloy/App_Data/

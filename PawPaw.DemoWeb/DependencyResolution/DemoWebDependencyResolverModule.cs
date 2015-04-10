@@ -20,7 +20,7 @@ namespace PawPaw.DemoWeb.DependencyResolution
         private static void ConfigureContainer(ConfigurationExpression container)
         {
             container.AddRegistry<DemoWebRegistry>();
-            container.AddRegistry(new PawPawRegistry(new AppConfiguration()));
+            container.AddRegistry(new PawPawRegistry(new AppConfiguration(), new FakeAuthIdentityContext()));
         }
     }
 }

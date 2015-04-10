@@ -173,10 +173,13 @@
   <ItemGroup>
     <Compile Include="DependencyResolution\MvcDependencyResolverModule.cs" />
     <Compile Include="DependencyResolution\StructureMapConfiguration.cs" />
+    <Compile Include="Events.cs" />
+    <Compile Include="Initialization\EventInitializationModule.cs" />
     <Compile Include="Settings\AppConfiguration.cs" />
     <Compile Include="DependencyResolution\EPiServerContribRegistry.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
     <Compile Include="ISocialContent.cs" />
+    <Compile Include="Settings\FakeAuthIdentityContext.cs" />
     <Compile Include="SocialContentBaseController.cs" />
     <Compile Include="SocialContentExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,13 +204,6 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
