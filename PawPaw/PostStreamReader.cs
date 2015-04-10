@@ -21,6 +21,11 @@ namespace PawPaw
                 .OrderByDescending(p => p.Modified ?? p.Created);
         }
 
+        public Post GetPostByExternalId(string externalId)
+        {
+            return _postRepository.GetByExternalId(externalId);
+        }
+
         public Post GetPost(int postId)
         {
             return _postRepository.Get(postId);

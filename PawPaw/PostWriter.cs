@@ -18,9 +18,9 @@ namespace PawPaw
             _userContext = userContext;
         }
 
-        public int CreatePost(Post post, int? groupId)
+        public int CreatePost(string body, int? groupId = null, string externalId = null)
         {
-            post.Created = DateTime.Now;
+            var post = new Post {Created = DateTime.Now};
 
             var user = _userContext.GetCurrentUser();
 
@@ -32,6 +32,10 @@ namespace PawPaw
                 if (groupId.HasValue)
                 {
                     _postRepository.AssociateWithGroup(postId, groupId.Value);
+                }
+                if (!string.IsNullOrWhiteSpace(externalId))
+                {
+                    _postRepository.AssociateWithExternalId(postId, externalId);
                 }
                 transaction.Complete();
 

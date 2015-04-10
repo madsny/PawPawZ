@@ -9,5 +9,7 @@ namespace PawPaw.Core
         IEnumerable<Post> GetAll();
         void AssociateWithGroup(int postId, int groupId);
         IEnumerable<Post> GetByGroupId(int groupId);
+        void AssociateWithExternalId(int postId, string externalId);
+        Post GetByExternalId(string externalId);
     }
 }
