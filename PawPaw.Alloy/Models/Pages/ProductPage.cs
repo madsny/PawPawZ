@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServerContrib.PawPaw;
 using PawPaw.Alloy.Models.Properties;
 
 namespace PawPaw.Alloy.Models.Pages
@@ -16,7 +17,7 @@ namespace PawPaw.Alloy.Models.Pages
     [AvailableContentTypes( 
         Availability = Availability.Specific,
         IncludeOn = new[] { typeof(StartPage) })]
-    public class ProductPage : StandardPage, IHasRelatedContent
+    public class ProductPage : StandardPage, IHasRelatedContent, ISocialContent
     {
         [Required]
         [BackingType(typeof(PropertyStringList))]
