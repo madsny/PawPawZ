@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{A5E3F595-0C9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawPaw.Alloy", "PawPaw.Alloy\PawPaw.Alloy.csproj", "{1FADFA32-E9C3-4BE5-852B-5A8018B74E62}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F8509B4C-E1AA-453A-A951-CC0F049E8C64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{C2B96D96-0383-4683-A165-8DDFFBEF2C93} = {F8509B4C-E1AA-453A-A951-CC0F049E8C64}
 		{08D23AC1-BB37-485C-AB5D-95E639D66B9D} = {A5E3F595-0C90-4519-A862-9BCF568CC09B}
 	EndGlobalSection
 EndGlobal
