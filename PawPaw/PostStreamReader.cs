@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using PawPaw.Core;
 
 namespace PawPaw
@@ -16,7 +17,8 @@ namespace PawPaw
 
         public IEnumerable<Post> GetPostByGroup(int groupId)
         {
-            return _postRepository.GetByGroupId(groupId);
+            return _postRepository.GetByGroupId(groupId)
+                .OrderByDescending(p => p.Modified ?? p.Created);
         }
 
         public Post GetPost(int postId)
@@ -26,7 +28,8 @@ namespace PawPaw
 
         public IEnumerable<Comment> GetComments(int postId)
         {
-            return _commentRepository.GetByPost(postId);
+            return _commentRepository.GetByPost(postId)
+                .OrderByDescending(c => c.Modified ?? c.Created);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace PawPaw.Data.Migrations
 
         public void MigrateToLatest()
         {
-             var announcer = new NullAnnouncer();
+            var announcer = new NullAnnouncer();
             var assembly = Assembly.GetExecutingAssembly();
             var migrationContext = new RunnerContext(announcer);
             var options = new ProcessorOptions { PreviewOnly = false, Timeout = 60 };

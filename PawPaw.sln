@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructureMapContrib.PawPaw"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{A5E3F595-0C90-4519-A862-9BCF568CC09B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PawPaw.Alloy", "PawPaw.Alloy\PawPaw.Alloy.csproj", "{1FADFA32-E9C3-4BE5-852B-5A8018B74E62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{08D23AC1-BB37-485C-AB5D-95E639D66B9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08D23AC1-BB37-485C-AB5D-95E639D66B9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08D23AC1-BB37-485C-AB5D-95E639D66B9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FADFA32-E9C3-4BE5-852B-5A8018B74E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FADFA32-E9C3-4BE5-852B-5A8018B74E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FADFA32-E9C3-4BE5-852B-5A8018B74E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FADFA32-E9C3-4BE5-852B-5A8018B74E62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

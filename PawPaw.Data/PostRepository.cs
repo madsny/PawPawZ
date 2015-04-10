@@ -13,9 +13,9 @@ namespace PawPaw.Data
         public int Create(Post post)
         {
             const string sql = @"
-INSERT INTO Post(Body) 
+INSERT INTO Post(Body, Created) 
 OUTPUT Inserted.Id
-VALUES(@Body);";
+VALUES(@Body, @Created);";
 
             return Run(con => con.Query<int>(sql, post)).Single();
         }

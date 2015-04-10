@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using PawPaw.DemoWeb.Filters;
 
 namespace PawPaw.DemoWeb
 {
@@ -8,6 +9,7 @@ namespace PawPaw.DemoWeb
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new FakeAuthenticationFilter());
         }
     }
 }
