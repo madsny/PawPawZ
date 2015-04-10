@@ -57,5 +57,29 @@ WHERE GroupId = @GroupId";
 
             return Run(con => con.Query<Post>(sql, new {GroupId = groupId}));
         }
+
+        public Post GetByExternalId(string externalId)
+        {
+            const string sql = @"
+SELECT Post.* FROM
+Post
+INNER JOIN ExternalIdToPost ON Post.Id = ExternalIdToPost.PostId
+WHERE ExternalIdToPost.ExternalId = @ExternalId";
+
+            return Run(con => con.Query<Post>(sql, new {ExternalId = externalId})).SingleOrDefault();
+
+        }
+
+        public void AssociateWithExternalId(int postId, string externalId)
+        {
+            const string sql = @"
+INSERT INTO 
+ExternalIdToPost(ExternalId, PostId)
+VALUES(@ExternalId, @PostId)";
+
+            Run(con => con.Execute(sql, new {ExternalId = externalId, PostId = postId}));
+        }
+
+
     }
 }
