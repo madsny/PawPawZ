@@ -23,11 +23,11 @@ namespace PawPaw.Tests
         public void CreatePost_NoContent_ShouldFail()
         {
             // arrange
-            var postWriter = new PostWriter(_mockPostRepo.Object, _mockCommentRepo.Object);
+            var postWriter = new PostWriter(_mockPostRepo.Object, _mockCommentRepo.Object, null);
 
             // act
             Action action = () =>
-                postWriter.CreatePost(new Post(), null);
+                postWriter.CreatePost(null);
             
             // assert
             action.ShouldThrow<Exception>();

@@ -13,6 +13,7 @@ namespace EPiServerContrib.PawPaw
                 return;
 
             var postWriter = ServiceLocator.Current.GetInstance<PostWriter>();
+            postWriter.CreatePost(null, null, content.ContentGuid.ToString());
         }
     }
 }

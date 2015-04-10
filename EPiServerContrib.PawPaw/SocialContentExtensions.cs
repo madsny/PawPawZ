@@ -7,18 +7,28 @@ namespace EPiServerContrib.PawPaw
 {
     public static class SocialContentExtensions
     {
-        public static int AddComment(this ISocialContent content, Post post)
+        public static void AddComment(this ISocialContent content, Comment comment)
         {
+            var post = GetPost(content);
+
             var postWriter = ServiceLocator.Current.GetInstance<PostWriter>();
-            var groupId = 1; // todo Gruppeid?
-            return postWriter.CreatePost(post, null);
+            postWriter.CreateComment(post.Id, comment);
         }
 
-        public static IEnumerable<Post> GetComments(this ISocialContent content)
+        public static IEnumerable<Comment> GetComments(this ISocialContent content)
         {
-            var postReader = ServiceLocator.Current.GetInstance<PostStreamReader>();;
-            var groupId = 1; // todo GruppeId?
-            return postReader.GetPostByGroup(groupId);
-        } 
+            var postReader = ServiceLocator.Current.GetInstance<PostStreamReader>();
+            var post = GetPost(content, postReader);
+
+            return postReader.GetComments(post.Id);
+        }
+
+        private static Post GetPost(ISocialContent content, PostStreamReader postStreamReader = null)
+        {
+            var postReader = postStreamReader ?? ServiceLocator.Current.GetInstance<PostStreamReader>();
+            var post = postReader.GetPostByExternalId(content.ContentGuid.ToString());
+            return post;
+        }
+
     }
 }
