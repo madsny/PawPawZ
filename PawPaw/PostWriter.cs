@@ -1,4 +1,5 @@
-﻿using System.Transactions;
+﻿using System;
+using System.Transactions;
 using PawPaw.Core;
 
 namespace PawPaw
@@ -16,6 +17,8 @@ namespace PawPaw
 
         public int CreatePost(Post post, int? groupId)
         {
+            post.Created = DateTime.Now;
+
             int postId;
             using (var transaction = new TransactionScope())
             {
@@ -33,6 +36,7 @@ namespace PawPaw
 
         public void CreateComment(int postId, Comment comment)
         {
+            comment.Created = DateTime.Now;
             _commentRepository.Create(postId, comment);
         }
     }
