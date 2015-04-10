@@ -39,7 +39,7 @@
             <ul>
                 @foreach (var post in Model.Posts)
                 {
-                    <li>@Html.ActionLink(post.Body, "Get", "Post",  new{Id= post.Id}, null) </li>
+                    <li>@Html.ActionLink(post.Body, "Get", "Post",  new{Id= post.Id}, null) (Opprettet @post.Created.ToString("g")@(post.Modified.HasValue ? string.Format(", endret {0}", post.Modified.Value.ToString("g")) : ""))</li>
                 }
             </ul>
         </section>

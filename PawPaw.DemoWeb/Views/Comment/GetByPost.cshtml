@@ -3,6 +3,6 @@
 <ul>
     @foreach (var comment in @Model)
     {
-        <li>@comment.Body</li>
+        <li>@comment.Body (@comment.Created.ToString("g"))</li>
     }
 </ul>

@@ -21,7 +21,10 @@ namespace PawPaw.Data
             const string sql = @"
 INSERT INTO Comment(Body, PostId, Created)
 OUTPUT Inserted.Id
-VALUES(@Body, @PostId, @Created)";
+VALUES(@Body, @PostId, @Created);
+UPDATE Post
+SET Modified = @Created
+WHERE Id = @PostId";
 
             var param = new DynamicParameters(comment);
             param.Add("PostId", postId);
