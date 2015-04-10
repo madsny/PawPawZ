@@ -3,8 +3,8 @@ using FluentMigrator;
 
 namespace PawPaw.Data.Migrations.v0_._1
 {
-    [Migration(201504101047)]
-    public class _201504101047_AddDatesToPostAndComment : Migration
+    [Migration(201504101440)]
+    public class _201504101440_AddUserIdToCommentAndPost : Migration
     {
         public override void Up()
         {
@@ -15,12 +15,9 @@ DELETE FROM Post;
 ");
 
             Alter.Table("Post")
-                .AddColumn("Created").AsDateTime().NotNullable()
-                .AddColumn("Modified").AsDateTime().Nullable();
-
+                .AddColumn("CreatedBy").AsInt32().NotNullable().ForeignKey("User", "Id");
             Alter.Table("Comment")
-                .AddColumn("Created").AsDateTime().NotNullable()
-                .AddColumn("Modified").AsDateTime().Nullable();
+                .AddColumn("CreatedBy").AsInt32().NotNullable().ForeignKey("User", "Id");
         }
 
         public override void Down()

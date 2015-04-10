@@ -10,14 +10,17 @@ namespace PawPaw.Data
     {
         public PostRepository(IDataSettings settings) : base(settings) { }
 
-        public int Create(Post post)
+        public int Create(Post post, int userId)
         {
             const string sql = @"
-INSERT INTO Post(Body, Created) 
+INSERT INTO Post(Body, Created, CreatedBy) 
 OUTPUT Inserted.Id
-VALUES(@Body, @Created);";
+VALUES(@Body, @Created, @UserId);";
 
-            return Run(con => con.Query<int>(sql, post)).Single();
+            var param = new DynamicParameters(post);
+            param.Add("UserId", userId);
+
+            return Run(con => con.Query<int>(sql, param)).Single();
         }
 
         public Post Get(int id)
