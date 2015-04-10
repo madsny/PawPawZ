@@ -1,9 +1,9 @@
-﻿using System;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using EPiServerContrib.PawPaw.DependencyResolution;
 
 namespace PawPaw.Alloy
 {
-    public class EPiServerApplication : EPiServer.Global
+    public class EPiServerApplication : global::EPiServer.Global
     {
         protected void Application_Start()
         {

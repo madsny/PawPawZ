@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using PawPaw.Data.Migrations;
+using PawPaw.DemoWeb.DependencyResolution;
 using PawPaw.DemoWeb.Settings;
 
 namespace PawPaw.DemoWeb
@@ -15,6 +16,10 @@ namespace PawPaw.DemoWeb
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            DemoWebDependencyResolverModule.ConfigureContainer();
+
+            
 
             var migrator = new Migrator(new AppConfiguration());
             migrator.MigrateToLatest();

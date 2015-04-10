@@ -1,3 +1,4 @@
+@using EPiServerContrib.PawPaw
 @using PawPaw.Alloy
 @model PageViewModel<ProductPage>
 
@@ -24,4 +25,12 @@
     </div>
 
     @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
+
+    <ul>
+    @foreach (var post in Model.CurrentPage.GetPosts())
+    {
+        <li>@post.Body</li>
+    }
+    </ul>
+
 }
