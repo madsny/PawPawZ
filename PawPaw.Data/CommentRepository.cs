@@ -19,7 +19,7 @@ namespace PawPaw.Data
         public int Create(int postId, Comment comment, int userId)
         {
             const string sql = @"
-INSERT INTO Comment(Body, PostId, Created, CreatedBy)
+INSERT INTO Comment(Body, PostId, Created, CreatedByUserId)
 OUTPUT Inserted.Id
 VALUES(@Body, @PostId, @Created, @UserId);
 UPDATE Post

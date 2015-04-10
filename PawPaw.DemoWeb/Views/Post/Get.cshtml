@@ -2,6 +2,8 @@
 <div>
     <h1>@Model.Id</h1>
     <p>@Model.Body</p>
+    <p>@Model.CreatedBy.Username</p>
+    <p>@Model.Created.ToShortDateString()</p>
     <div>
         @{
             Html.RenderAction("GetByPost", "Comment", new {PostId = Model.Id});
