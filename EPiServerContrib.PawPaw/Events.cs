@@ -1,6 +1,4 @@
 ﻿using EPiServer;
-using EPiServer.ServiceLocation;
-using PawPaw;
 
 namespace EPiServerContrib.PawPaw
 {
@@ -12,8 +10,7 @@ namespace EPiServerContrib.PawPaw
             if (content == null)
                 return;
 
-            var postWriter = ServiceLocator.Current.GetInstance<PostWriter>();
-            postWriter.CreatePost(null, null, content.ContentGuid.ToString());
+            content.CreatePost();
         }
     }
 }
