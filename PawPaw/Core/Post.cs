@@ -1,4 +1,5 @@
 ﻿using System;
+using PawPaw.Users;
 
 namespace PawPaw.Core
 {
@@ -8,5 +9,6 @@ namespace PawPaw.Core
         public string Body { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Modified { get; set; }
+        public UserShort CreatedBy { get; set; } 
     }
 }

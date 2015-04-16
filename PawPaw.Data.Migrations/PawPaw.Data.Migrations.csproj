@@ -57,6 +57,7 @@
     <Compile Include="v0_\1\_201504101330_AddUserTable.cs" />
     <Compile Include="v0_\1\_201504101440_AddUserIdToCommentAndPost.cs" />
     <Compile Include="v0_\1\_201504101517_AddExternalIdToPostMapping.cs" />
+    <Compile Include="v0_\1\_201504101707_RenameCreatedByToCreatedByUserId.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -20,8 +20,6 @@ namespace PawPaw.DemoWeb
 
             DemoWebDependencyResolverModule.ConfigureContainer();
 
-            
-
             var migrator = new Migrator(new AppConfiguration());
             migrator.MigrateToLatest();
         }

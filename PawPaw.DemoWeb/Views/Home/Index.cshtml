@@ -42,7 +42,11 @@
             <ul>
                 @foreach (var post in Model.Posts)
                 {
-                    <li>@Html.ActionLink(string.Format("{0} - {1}", post.Id, post.Body), "Get", "Post",  new{Id= post.Id}, null) (Opprettet @post.Created.ToString("g")@(post.Modified.HasValue ? string.Format(", endret {0}", post.Modified.Value.ToString("g")) : ""))</li>
+                    <li>
+                        <h3>@post.CreatedBy.Username (Created @post.Created.ToString("g")@(post.Modified.HasValue ? string.Format(", edited {0}", post.Modified.Value.ToString("g")) : "")</h3>
+                        @Html.ActionLink("Go to post", "Get", "Post", new {Id = post.Id}, null)
+                        <p>@post.Body</p>
+                    </li>
                 }
             </ul>
         </section>
