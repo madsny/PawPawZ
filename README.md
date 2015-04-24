@@ -10,8 +10,8 @@ VS + F5 gogo
 
 ## Bygging lokalt
 
-Prosjektet benytter Node med hjelp av Gulp for kompilering av LESS og js. Sørg derfor å ha node installert lokalt på utviklermaskinen.
-Via (power)shell, gå til mappen PawPaw.Web og skriv
-npm install
-gulp watch
+Prosjektet benytter Node med hjelp av Gulp for kompilering av LESS og js. Sørg derfor å ha node installert lokalt på utviklermaskinen.  
+Via (power)shell, gå til mappen PawPaw.Web og skriv  
+`npm install`  
+`gulp watch`  
 CSS og JS vil da bundles og legges i PawPaw.Web/public/js og PawPaw.Web/public/css.
