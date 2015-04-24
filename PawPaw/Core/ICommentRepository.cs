@@ -2,9 +2,10 @@
 
 namespace PawPaw.Core
 {
-    public interface ICommentRepository
+    public interface IWeightRepository
     {
-        IEnumerable<Comment> GetByPost(int postId);
-        int Create(int postId, Comment comment, int userId);
+        IEnumerable<Weight> GetByPost(int postId);
+        IEnumerable<Weight> GetByComment(int commentId);
+        int Create(int? postId, int? commentId, Weight weight, int userId);
     }
 }
