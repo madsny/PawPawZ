@@ -126,6 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -147,7 +148,6 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Assets\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -173,6 +173,10 @@
     <ProjectReference Include="..\PawPaw.Data\PawPaw.Data.csproj">
       <Project>{E305403D-5556-448B-B837-DA3B70DA3A11}</Project>
       <Name>PawPaw.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PawPaw.WebApi\PawPaw.WebApi.csproj">
+      <Project>{e2cd0005-400d-4f94-81b7-6dfbd8e5d2f9}</Project>
+      <Name>PawPaw.WebApi</Name>
     </ProjectReference>
     <ProjectReference Include="..\PawPaw\PawPaw.csproj">
       <Project>{FA7270A2-BA98-41C1-9AD3-D1ECD4B271ED}</Project>

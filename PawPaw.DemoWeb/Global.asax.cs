@@ -14,10 +14,12 @@ namespace PawPaw.DemoWeb
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            GlobalConfiguration.Configuration.EnsureInitialized();
+
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
             DemoWebDependencyResolverModule.ConfigureContainer();
 
             var migrator = new Migrator(new AppConfiguration());
