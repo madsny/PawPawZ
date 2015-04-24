@@ -111,3 +111,14 @@ UpgradeLog*.XML
 Credentials.Dev.config
 
 PawPaw.Alloy/App_Data/
+
+# Node packages
+node_modules
+*npm-debug.log
+
+# Generated content
+combined*.css
+*.js.map
+*.css.map
+style.bundle.css
+app.bundle.js
