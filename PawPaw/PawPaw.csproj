@@ -41,12 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Comment.cs" />
+    <Compile Include="Core\IWeightRepository.cs" />
     <Compile Include="Core\ICommentRepository.cs" />
     <Compile Include="Core\Group.cs" />
     <Compile Include="Core\IGroupRepository.cs" />
     <Compile Include="Core\IPostRepository.cs" />
     <Compile Include="Core\Post.cs" />
     <Compile Include="Core\User.cs" />
+    <Compile Include="Core\Like.cs" />
+    <Compile Include="Core\Weight.cs" />
+    <Compile Include="LikeReader.cs" />
+    <Compile Include="LikeWriter.cs" />
+    <Compile Include="WeightReader.cs" />
     <Compile Include="GroupReader.cs" />
     <Compile Include="GroupWriter.cs" />
     <Compile Include="Users\IIdentityContext.cs" />
@@ -57,6 +63,7 @@
     <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\UserContext.cs" />
     <Compile Include="Users\UserShort.cs" />
+    <Compile Include="WeightWriter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

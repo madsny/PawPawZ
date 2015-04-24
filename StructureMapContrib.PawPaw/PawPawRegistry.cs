@@ -18,6 +18,8 @@ namespace StructureMapContrib.PawPaw
 
             For<IDataSettings>().Use(datasettings);
             For<IIdentityContext>().Use(identityContext);
+
+            For<IWeightRepository>().Use<WeightRepository>();
         }
     }
 }
