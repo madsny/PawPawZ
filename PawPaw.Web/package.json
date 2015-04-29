@@ -1,7 +1,7 @@
 {
     "name": "PawPaw.Web",
     "version": "1.0.0",
-    "description": "Eidsiva Public Site",
+    "description": "PawPaw 4 u and for me?",
     "scripts": {
         "deploy": "gulp --production",
         "watch": "gulp watch"
