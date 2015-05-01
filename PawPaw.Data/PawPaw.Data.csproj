@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WeightRepository.cs" />
     <Compile Include="CommentRepository.cs" />
     <Compile Include="GroupRepository.cs" />
     <Compile Include="IDataSettings.cs" />
