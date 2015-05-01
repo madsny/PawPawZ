@@ -42,20 +42,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\components\groupList.js" />
     <Content Include="Gulpfile.js" />
+    <Content Include="gulpscripts\index.js" />
+    <Content Include="gulpscripts\js.js" />
     <Content Include="gulpscripts\less.js" />
     <Content Include="gulpscripts\utils.js" />
     <Content Include="public\index.html" />
-    <Content Include="gulpscripts\index.js" />
-    <Content Include="gulpscripts\js.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\" />
-    <Folder Include="style\" />
+    <Folder Include="public\css\" />
+    <Folder Include="public\js\" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".jshintrc" />
     <None Include="package.json" />
+    <None Include="style\global.less" />
+    <None Include="style\style.less" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
