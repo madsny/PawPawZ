@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using PawPaw.Core;
+using PawPaw.Readers;
+using PawPaw.Users;
 using PawPaw.Web.Config;
+using PawPaw.Writers;
 
-namespace PawPaw.Web.Api
+namespace PawPaw.WebApi.Api
 {
     [RoutePrefix(Constants.ApiPrefix)]
-    public class GroupApiController : ApiController
+    public class GroupApiController : ApiControllerBase
     {
         private readonly GroupReader _groupReader;
         private readonly GroupWriter _groupWriter;
 
         public GroupApiController(
             GroupReader groupReader, 
-            GroupWriter groupWriter)
+            GroupWriter groupWriter,
+            IUserContext userContext) : base(userContext)
         {
             _groupReader = groupReader;
             _groupWriter = groupWriter;

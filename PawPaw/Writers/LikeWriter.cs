@@ -1,4 +1,4 @@
-﻿namespace PawPaw
+﻿namespace PawPaw.Writers
 {
     public class LikeWriter
     {
@@ -14,9 +14,14 @@
             return _weightWriter.AddWeightToPost(postId, 1);
         }
 
-        public int AddLikeToComment(int commentId, int amount)
+        public int AddLikeToComment(int commentId)
         {
             return _weightWriter.AddWeightToComment(commentId, 1);
+        }
+
+        public void RemoveLikeFromPost(int likeId)
+        {
+            _weightWriter.DeleteWeight(likeId);
         }
     }
 }

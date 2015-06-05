@@ -3,6 +3,7 @@ using FluentAssertions;
 using Moq;
 using NUnit.Framework;
 using PawPaw.Core;
+using PawPaw.Writers;
 
 namespace PawPaw.Tests
 {

@@ -2,14 +2,16 @@
 using System.Linq;
 using PawPaw.Core;
 
-namespace PawPaw
+namespace PawPaw.Readers
 {
-    public class PostStreamReader
+    public class PostStreamReader : ReaderBase
     {
         private readonly IPostRepository _postRepository;
         private readonly ICommentRepository _commentRepository;
 
-        public PostStreamReader(IPostRepository postRepository, ICommentRepository commentRepository)
+        public PostStreamReader(
+            IPostRepository postRepository, 
+            ICommentRepository commentRepository)
         {
             _postRepository = postRepository;
             _commentRepository = commentRepository;
@@ -35,6 +37,11 @@ namespace PawPaw
         {
             return _commentRepository.GetByPost(postId)
                 .OrderByDescending(c => c.Modified ?? c.Created);
+        }
+
+        public override SocialContentBase GetById(int id)
+        {
+            return GetPost(id);
         }
     }
 }

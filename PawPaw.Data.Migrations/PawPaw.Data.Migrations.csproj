@@ -59,6 +59,7 @@
     <Compile Include="v0_\1\_201504101517_AddExternalIdToPostMapping.cs" />
     <Compile Include="v0_\1\_201504101707_RenameCreatedByToCreatedByUserId.cs" />
     <Compile Include="v0_\1\_201504241456_AddWeightTable.cs" />
+    <Compile Include="v0_\1\_201506050948_AddDeletedColumnToAllTables.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

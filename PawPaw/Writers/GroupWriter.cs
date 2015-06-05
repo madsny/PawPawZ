@@ -1,6 +1,6 @@
 ﻿using PawPaw.Core;
 
-namespace PawPaw
+namespace PawPaw.Writers
 {
     public class GroupWriter
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using Dapper;
 
 namespace PawPaw.Data
 {
@@ -25,6 +26,16 @@ namespace PawPaw.Data
         {
             var connection = new SqlConnection(_settings.ConnectionString);
             return connection;
+        }
+
+        protected void DeleteFrom(string table, int itemId)
+        {
+            var  sql = string.Format(@"
+                UPDATE {0}
+                SET Deleted = 1
+                WHERE Id = @ItemId", table);
+
+            Run(con => con.Execute(sql, new {ItemId = itemId}));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using PawPaw.Core;
 
-namespace PawPaw
+namespace PawPaw.Readers
 {
     public class GroupReader 
     {

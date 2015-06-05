@@ -1,5 +1,7 @@
 ﻿using EPiServerContrib.PawPaw.Settings;
 using PawPaw;
+using PawPaw.Readers;
+using PawPaw.Writers;
 using StructureMap.Configuration.DSL;
 using StructureMapContrib.PawPaw;
 
