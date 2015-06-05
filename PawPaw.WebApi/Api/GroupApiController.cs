@@ -19,20 +19,20 @@ namespace PawPaw.Web.Api
             _groupWriter = groupWriter;
         }
 
-        [Route("group")]
+        [Route("groups")]
         public IEnumerable<Group> GetALl()
         {
             return _groupReader.GetAll();
         }
 
-        [Route("group/{groupId:int}")]
+        [Route("groups/{groupId:int}")]
         public Group Get(int groupId)
         {
             return _groupReader.GetGroup(groupId);
         }
 
         [HttpPost]
-        [Route("group")]
+        [Route("groups")]
         public void New(Group group)
         {
             _groupWriter.Create(group);

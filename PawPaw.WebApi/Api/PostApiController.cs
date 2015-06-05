@@ -19,20 +19,20 @@ namespace PawPaw.Web.Api
             _postStreamReader = postStreamReader;
         }
 
-        [Route("post/{postId:int}")]
+        [Route("posts/{postId:int}")]
         public Post Get(int postId)
         {
             return _postStreamReader.GetPost(postId);
         }
 
-        [Route("group/{groupId:int}/post")]
+        [Route("groups/{groupId:int}/posts")]
         public IEnumerable<Post> GetByGroupId(int groupId)
         {
             return _postStreamReader.GetPostByGroup(groupId);
         }
 
         [HttpPost]
-        [Route("post")]
+        [Route("posts")]
         public void CreateNew(Post post, int? groupId)
         {
             _postWriter.CreatePost(post.Body, groupId);

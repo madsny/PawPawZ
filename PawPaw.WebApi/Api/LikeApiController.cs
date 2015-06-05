@@ -19,13 +19,13 @@ namespace PawPaw.WebApi.Api
             _likeReader = likeReader;
         }
 
-        [Route("post/{postId:int}/like")]
+        [Route("posts/{postId:int}/likes")]
         public IEnumerable<Like> Get(int postId)
         {
             return _likeReader.GetLikesForPost(postId);
         }
 
-        [Route("post/{postId:int}/like")]
+        [Route("posts/{postId:int}/likes")]
         [HttpPost]
         public int AddLike(int postId)
         {

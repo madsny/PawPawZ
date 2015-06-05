@@ -19,14 +19,14 @@ namespace PawPaw.Web.Api
             _postStreamReader = postStreamReader;
         }
 
-        [Route("post/{postId:int}/comment")]
+        [Route("posts/{postId:int}/comments")]
         public IEnumerable<Comment> GetByPost(int postId)
         {
             return _postStreamReader.GetComments(postId);
         }
 
         [HttpPost]
-        [Route("post/{postId:int}/comment")]
+        [Route("posts/{postId:int}/comments")]
         public void Create(int postId, Comment comment)
         {
             _postWriter.CreateComment(postId, comment);
