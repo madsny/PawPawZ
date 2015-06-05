@@ -4,17 +4,18 @@ using PawPaw.Data;
 using PawPaw.Users;
 using PawPaw.Web.DependencyResolution;
 
-namespace PawPaw.Web.Config
+namespace PawPaw.WebApi.Config
 {
     public static class PawPawWebConfig
     {
-        public static void Configure(
+        public static HttpConfiguration Configure(
             HttpConfiguration config, 
             IDataSettings dataSettings, 
             IIdentityContext identityContext)
         {
             PawPawWebDependencyResolverModule.ConfigureContainer(dataSettings, identityContext);
             Register(config);
+            return config;
         }
 
         private static void Register(HttpConfiguration config)
