@@ -6,10 +6,10 @@
 
 ### Oppsett av DB
 
-**Hvis du har SQLExpress installert lokalt:**
+**Hvis du har SQLExpress installert lokalt:**  
 Opprett en ny tom database som du kaller *PawPaw*.
 
-**Hvis du ikke har SQLExpress installert lokalt:**
+**Hvis du ikke har SQLExpress installert lokalt:**  
 Endre connectionstring-en kalt *PawPaw* i `Web.config` under *PawPaw.IIS*-prosjektet til å peke på en annen tom database. Brukeren må ha rettigheter til å opprette tabeller.
 
 ### Bygging av frontend
