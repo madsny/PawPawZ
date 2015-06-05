@@ -7,6 +7,5 @@ namespace PawPaw.Core
     {
         public UserShort CreatedBy { get; set; }
         public DateTime Created { get; set; }
-        public DateTime? Modified { get; set; }
     }
 }

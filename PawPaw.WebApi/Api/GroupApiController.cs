@@ -37,9 +37,9 @@ namespace PawPaw.WebApi.Api
 
         [HttpPost]
         [Route("groups")]
-        public void New(Group group)
+        public int New(Group group)
         {
-            _groupWriter.Create(group);
+            return _groupWriter.Create(group);
         }
     }
 }

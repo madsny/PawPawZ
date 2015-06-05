@@ -15,19 +15,19 @@ namespace PawPaw.Data
         {
             const string whereClause = "WHERE PostId = @PostId";
 
-            return RunSelect(whereClause, new {PostId = postId});
+            return RunSelect(whereClause, InnerJoinPost, new {PostId = postId});
         }
 
         public IEnumerable<Weight> GetByComment(int commentId)
         {
             const string whereClause = "WHERE CommentId = @CommentId";
-            return RunSelect(whereClause, new { CommentId = commentId });
+            return RunSelect(whereClause, InnerJoinComment, new { CommentId = commentId });
         }
 
         public Weight GetById(int weightId)
         {
-            const string whereClause = "WHERE Id = @WeightId";
-            return RunSelect(whereClause, new { WeightId = weightId }).SingleOrDefault();
+            const string sql = "SELECT * FROM Weight WHERE Id = @WeightId";
+            return Run(con => con.Query<Weight>(sql, new { WeightId = weightId })).SingleOrDefault();
         }
 
         public int Create(int? postId, int? commentId, Weight weight, int userId)
@@ -35,18 +35,34 @@ namespace PawPaw.Data
             if (postId == null && commentId == null)
                 throw new ArgumentNullException("postId and commentId can't both be null");
 
-            const string sql = @"
-                INSERT INTO Weight(Amount, PostId, Created, CreatedByUserId)
+            var sql = @"
+                INSERT INTO Weight(Amount, Created, CreatedByUserId)
                 OUTPUT Inserted.Id
-                VALUES(@Body, @PostId, @Created, @UserId);
-                UPDATE Post
-                SET Modified = @Created
-                WHERE Id = @PostId";
+                VALUES(@Amount, @Created, @UserId);";
 
             var param = new DynamicParameters(weight);
-            if (postId != null) param.Add("PostId", postId);
-            if (commentId != null) param.Add("CommentId", commentId);
             param.Add("UserId", userId);
+
+            if (postId != null)
+            {
+                sql += @"
+                    INSERT INTO WeightToPost(WeightId, PostId)
+                    VALUES(@Id, @PostId);
+                    UPDATE Post
+                    SET Modified = @Created
+                    WHERE Id = @PostId;";
+                param.Add("PostId", postId);
+            }
+            if (commentId != null)
+            {
+                sql += @"
+                    INSERT INTO WeightToComment(WeightId, CommentId)
+                    VALUES(@Id, @CommentId);
+                    UPDATE Comment
+                    SET Modified = @Created
+                    WHERE Id = @CommentId;";
+                param.Add("CommentId", commentId);
+            }
 
             return Run(con => con.Query<int>(sql, param)).Single();
         }
@@ -60,10 +76,14 @@ namespace PawPaw.Data
                 SELECT * FROM 
                 Weight 
                 INNER JOIN [User] ON Weight.CreatedByUserId = [User].Id";
+        private const string InnerJoinPost = @"
+                INNER JOIN [WeightToPost] ON Weight.Id = [WeightToPost].WeightId";
+        private const string InnerJoinComment = @"
+                INNER JOIN [WeightToComment] ON Weight.Id = [WeightToComment].WeightId";
 
-        private IEnumerable<Weight> RunSelect(string whereClause, object param)
+        private IEnumerable<Weight> RunSelect(string whereClause, string joinClause, object param)
         {
-            return Run(con => con.Query<Weight, UserShort, Weight>(string.Format("{0} {1}", SelectClause, whereClause), MapPostAndUser, param));
+            return Run(con => con.Query<Weight, UserShort, Weight>(string.Format("{0} {1} {2}", SelectClause, joinClause, whereClause), MapPostAndUser, param));
         }
 
         private Weight MapPostAndUser(Weight weight, UserShort createdBy)

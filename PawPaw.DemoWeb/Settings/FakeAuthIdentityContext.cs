@@ -8,10 +8,18 @@ namespace PawPaw.DemoWeb.Settings
     {
         public IIdentity GetCurrentIdentity()
         {
-            var username = HttpContext.Current.Session["username"] as string;
-            if (string.IsNullOrEmpty(username))
-                return null;
-            return new GenericIdentity(username);
+            string username;
+            var session = HttpContext.Current.Session;
+            if (session != null)
+            {
+                username = session["username"] as string;
+            }
+            else
+            {
+                username = HttpContext.Current.Request.Headers.Get("Authorization");
+            }
+
+            return string.IsNullOrEmpty(username) ? null : new GenericIdentity(username);
         }
     }
 }

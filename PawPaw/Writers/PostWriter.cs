@@ -20,7 +20,7 @@ namespace PawPaw.Writers
 
         public int CreatePost(string body, int? groupId = null, string externalId = null)
         {
-            var post = new Post {Created = DateTime.Now};
+            var post = new Post {Created = DateTime.Now, Body = body};
 
             var user = _userContext.GetCurrentUser();
 
@@ -43,11 +43,11 @@ namespace PawPaw.Writers
             return postId;
         }
 
-        public void CreateComment(int postId, Comment comment)
+        public int CreateComment(int postId, Comment comment)
         {
             var user = _userContext.GetCurrentUser();
             comment.Created = DateTime.Now;
-            _commentRepository.Create(postId, comment, user.Id);
+            return _commentRepository.Create(postId, comment, user.Id);
         }
     }
 }
