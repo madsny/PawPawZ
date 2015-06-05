@@ -2,9 +2,9 @@
 using System.Linq;
 using PawPaw.Core;
 
-namespace PawPaw
+namespace PawPaw.Readers
 {
-    public class LikeReader
+    public class LikeReader : ReaderBase
     {
         private readonly WeightReader _weightReader;
 
@@ -25,6 +25,9 @@ namespace PawPaw
 
         private static Like ConvertToLike(Weight weight)
         {
+            if (weight == null) 
+                return null;
+
             return new Like
             {
                 Created = weight.Created,
@@ -42,6 +45,16 @@ namespace PawPaw
         public int GetLikeCountForComment(int commentId)
         {
             return _weightReader.GetByComment(commentId).Count(w => w.Amount > 0);
+        }
+
+        public Like GetLikeById(int likeId)
+        {
+            return ConvertToLike(_weightReader.GetWeightById(likeId));
+        }
+
+        public override SocialContentBase GetById(int id)
+        {
+            return GetLikeById(id);
         }
     }
 }

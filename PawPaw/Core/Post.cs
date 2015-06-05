@@ -1,14 +1,8 @@
-﻿using System;
-using PawPaw.Users;
-
-namespace PawPaw.Core
+﻿namespace PawPaw.Core
 {
-    public class Post
+    public class Post : SocialContentBase
     {
         public int Id { get; set; }
         public string Body { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime? Modified { get; set; }
-        public UserShort CreatedBy { get; set; } 
     }
 }

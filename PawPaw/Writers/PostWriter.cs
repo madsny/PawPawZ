@@ -3,7 +3,7 @@ using System.Transactions;
 using PawPaw.Core;
 using PawPaw.Users;
 
-namespace PawPaw
+namespace PawPaw.Writers
 {
     public class PostWriter
     {

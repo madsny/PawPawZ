@@ -2,7 +2,7 @@
 using PawPaw.Core;
 using PawPaw.Users;
 
-namespace PawPaw
+namespace PawPaw.Writers
 {
     public class WeightWriter
     {
@@ -25,6 +25,11 @@ namespace PawPaw
         public int AddWeightToComment(int commentId, int amount)
         {
             return AddWeightTo(null, commentId, amount);
+        }
+
+        public void DeleteWeight(int weightId)
+        {
+            _weightRepository.Delete(weightId);
         }
 
         private int AddWeightTo(int? postId, int? commentId, int amount)

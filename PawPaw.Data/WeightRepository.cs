@@ -24,6 +24,12 @@ namespace PawPaw.Data
             return RunSelect(whereClause, new { CommentId = commentId });
         }
 
+        public Weight GetById(int weightId)
+        {
+            const string whereClause = "WHERE Id = @WeightId";
+            return RunSelect(whereClause, new { WeightId = weightId }).SingleOrDefault();
+        }
+
         public int Create(int? postId, int? commentId, Weight weight, int userId)
         {
             if (postId == null && commentId == null)
@@ -43,6 +49,11 @@ namespace PawPaw.Data
             param.Add("UserId", userId);
 
             return Run(con => con.Query<int>(sql, param)).Single();
+        }
+
+        public void Delete(int weightId)
+        {
+            DeleteFrom("Weight", weightId);
         }
 
         private const string SelectClause = @"

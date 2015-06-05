@@ -1,12 +1,8 @@
-﻿using System;
-
-namespace PawPaw.Core
+﻿namespace PawPaw.Core
 {
-    public class Comment
+    public class Comment : SocialContentBase
     {
         public int Id { get; set; }
         public string Body { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime? Modified { get; set; }
     }
 }

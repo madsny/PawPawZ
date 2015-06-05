@@ -26,9 +26,9 @@ namespace PawPaw.Data
         public User Create(User user)
         {
             const string sql = @"
-INSERT INTO [User](Username, FullName)
-OUTPUT Inserted.Id
-VALUES(@Username, @FullName)";
+                    INSERT INTO [User](Username, FullName)
+                    OUTPUT Inserted.Id
+                    VALUES(@Username, @FullName)";
 
             var id = Run(con => con.Query<int>(sql, user)).Single();
 

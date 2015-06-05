@@ -3,6 +3,8 @@ using System.Linq;
 using EPiServer.ServiceLocation;
 using PawPaw;
 using PawPaw.Core;
+using PawPaw.Readers;
+using PawPaw.Writers;
 
 namespace EPiServerContrib.PawPaw
 {

@@ -62,6 +62,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ApiControllerBase.cs" />
     <Compile Include="Api\LikeApiController.cs" />
     <Compile Include="Api\PostApiController.cs" />
     <Compile Include="Api\GroupApiController.cs" />
