@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 using PawPaw.DemoWeb.Settings;
-using PawPaw.Web.Config;
+using PawPaw.WebApi.Config;
 
 namespace PawPaw.DemoWeb
 {
