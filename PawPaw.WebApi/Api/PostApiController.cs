@@ -36,10 +36,10 @@ namespace PawPaw.WebApi.Api
         }
 
         [HttpPost]
-        [Route("posts")]
-        public void CreateNew(Post post, int? groupId)
+        [Route("groups/{groupId:int}/posts")]
+        public int CreateNew(Post post, int? groupId)
         {
-            _postWriter.CreatePost(post.Body, groupId);
+            return _postWriter.CreatePost(post.Body, groupId);
         }
 
     }

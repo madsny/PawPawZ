@@ -13,14 +13,17 @@ namespace PawPaw.WebApi.Api
     {
         private readonly PostWriter _postWriter;
         private readonly PostStreamReader _postStreamReader;
+        private readonly CommentReader _commentReader;
 
         public CommentsApiController(
             PostWriter postWriter, 
             PostStreamReader postStreamReader,
-            IUserContext userContext) : base(userContext)
+            IUserContext userContext, 
+            CommentReader commentReader) : base(userContext)
         {
             _postWriter = postWriter;
             _postStreamReader = postStreamReader;
+            _commentReader = commentReader;
         }
 
         [Route("posts/{postId:int}/comments")]
@@ -29,11 +32,17 @@ namespace PawPaw.WebApi.Api
             return _postStreamReader.GetComments(postId);
         }
 
+        [Route("posts/{postId:int}/comments/{commentId:int}")]
+        public Comment GetById(int postId, int commentId)
+        {
+            return _commentReader.GetCommentById(commentId);
+        }
+
         [HttpPost]
         [Route("posts/{postId:int}/comments")]
-        public void Create(int postId, Comment comment)
+        public int Create(int postId, Comment comment)
         {
-            _postWriter.CreateComment(postId, comment);
+            return _postWriter.CreateComment(postId, comment);
         }
     }
 }

@@ -40,6 +40,7 @@ namespace PawPaw.WebApi.Api
         #endregion
 
         #region Post
+
         [Route("posts/{postId:int}/likes")]
         [HttpPost]
         public int AddLikeToPost(int postId)
@@ -57,6 +58,7 @@ namespace PawPaw.WebApi.Api
         #endregion
 
         #region Delete
+
         [Route("posts/{postId:int}/likes/{likeId:int}")]
         [HttpDelete]
         public void RemoveLikeFromPost(int postId, int likeId)

@@ -33,7 +33,6 @@ namespace PawPaw.Readers
                 Created = weight.Created,
                 CreatedBy = weight.CreatedBy,
                 Id = weight.Id,
-                Modified = weight.Modified
             };
         }
 

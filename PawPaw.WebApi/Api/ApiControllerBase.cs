@@ -17,12 +17,13 @@ namespace PawPaw.WebApi.Api
 
         protected bool IsSameAsCurrentUser(UserShort user)
         {
-            return user.Id != _userContext.GetCurrentUser().Id;
+            var currentUser = _userContext.GetCurrentUser();
+            return currentUser != null && user.Id != currentUser.Id;
         }
 
         protected bool IsCreatedByCurrentUser(ICreatedByUser content)
         {
-            return content.CreatedBy.Id == _userContext.GetCurrentUser().Id;
+            return IsSameAsCurrentUser(content.CreatedBy);
         }
 
         protected void CheckPermission(ReaderBase reader, int id)

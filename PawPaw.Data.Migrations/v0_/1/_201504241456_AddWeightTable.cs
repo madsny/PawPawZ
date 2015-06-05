@@ -12,8 +12,6 @@ namespace PawPaw.Data.Migrations.v0_._1
                 .WithColumn("Amount").AsInt32().NotNullable()
                 .WithColumn("Created").AsDateTime().NotNullable()
                 .WithColumn("Modified").AsDateTime().Nullable()
-                .WithColumn("PostId").AsInt32().NotNullable().ForeignKey("Post", "Id")
-                .WithColumn("CommentId").AsInt32().NotNullable().ForeignKey("Comment", "Id")
                 .WithColumn("CreatedByUserId").AsInt32().NotNullable().ForeignKey("User", "Id");
         }
 

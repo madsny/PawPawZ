@@ -17,6 +17,9 @@ namespace PawPaw.Users
         {
             var identity = _identityContext.GetCurrentIdentity();
 
+            if (identity == null)
+                return null;
+
             var user = _userRepository.Get(identity.Name);
             if (user != null)
                 return user;
