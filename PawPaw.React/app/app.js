@@ -15,7 +15,8 @@ var App = React.createClass({
 
 var Routes = (
     <Router.Route handler={App}>
-        <Router.DefaultRoute handler={GroupView} />
+        <Router.Route path='groups' handler={GroupView} />
+        <Router.Redirect from='/' to='/groups' />
     </Router.Route>
 );
 
