@@ -1,19 +1,24 @@
 ﻿'use strict';
 var React = require('react');
-var GroupBox = require('./components/groupBox');
+var Router = require('react-router');
+var GroupView = require('./components/GroupView');
 
 var App = React.createClass({
     render: function() {
         return (
             <div className='app'>
-                <h1>Hello PawPaw</h1>
-                <GroupBox />
+                <Router.RouteHandler />
             </div>
         );
     }
 });
 
-React.render(
-    <App />,
-    document.getElementById('content')
+var Routes = (
+    <Router.Route handler={App}>
+        <Router.DefaultRoute handler={GroupView} />
+    </Router.Route>
 );
+
+Router.run(Routes, function(Handler){
+    React.render(<Handler />, document.body);
+});
