@@ -12,7 +12,7 @@ function loadGroups(data){
 }
 
 function fetchFailed(error){
-	_groups._hasErrors = true;
+	_groups.hasErrors = true;
 	_groups.errors = _groups.errors || [];
 	_groups.errors.push(error);
 }

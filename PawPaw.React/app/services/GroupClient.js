@@ -13,6 +13,16 @@ var GroupClient = {
 					RequestHandler.response(resolve, reject, err, res);
 				});
 		});
+	},
+	post: function(group){
+		return new Promise(function(resolve, reject){
+			Request
+				.post('/api/groups/', group)
+				.on('error', RequestHandler.error(reject))
+				.end(function(err, res){
+					RequestHandler.response(resolve, reject, err, res);
+				});
+		});
 	}
 };
 

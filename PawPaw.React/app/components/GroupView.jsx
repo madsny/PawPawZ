@@ -1,5 +1,6 @@
 'use strict';
 var React = require('react');
+var Link = require('react-router').Link;
 var _ = require('lodash');
 
 var GroupStore = require('../stores/GroupStore');
@@ -30,6 +31,7 @@ var GroupView = React.createClass({
 			<div className='groups'>
 				<h1>Grupper</h1>
 				<ul className='groupList'>{this.groups()}</ul>
+				<p><Link to='addGroup'>Opprett ny gruppe</Link></p>
 			</div>
 		);
 	},

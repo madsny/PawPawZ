@@ -51,5 +51,5 @@ gulp.task('js-lint', function () {
 
 
 gulp.task('watch-js', ['js'], function () {
-    gulp.watch([_.path.scriptsWatch, _.path.templatesWatch, _.path.scriptsIgnore], ['js']);
+    gulp.watch([_.path.scriptsWatch, _.path.jsxWatch], ['js']);
 });

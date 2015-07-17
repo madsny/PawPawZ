@@ -8,8 +8,9 @@ module.exports = {
     base: base,
     output: './public/',
     path: {
-        "scripts": join(base, "app/app.js"),
+        "scripts": join(base, "app/app.jsx"),
         "scriptsWatch": join(base, "app/**/*.js"),
+        "jsxWatch": join(base, "app/**/*.jsx"),
         "jshintrc": join(base, ".jshintrc"),
         "less": join(base, "style/style.less"),
         "lessWatch": join(base, "style/**/*.less")

@@ -21,6 +21,23 @@ var GroupActions = {
 					error: error
 				});
 			});
+	},
+	post: function(group){
+		PawPawDispatcher.dispatch({
+			actionType: PawPawConstants.GROUP_POST
+		});
+		GroupClient.post(group)
+			.then(function(data){
+				PawPawDispatcher.dispatch({
+					actionType: PawPawConstants.GROUP_POST_SUCCESS,
+					data: data
+				});
+			}, function(error){
+				PawPawDispatcher.dispatch({
+					actionType: PawPawConstants.GROUP_POST_FAIL,
+					error: error
+				});
+			});
 	}
 };
 
