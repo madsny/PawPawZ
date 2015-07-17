@@ -3,16 +3,16 @@ var React = require('react');
 var Link = require('react-router').Link;
 var _ = require('lodash');
 
-var GroupStore = require('../stores/GroupStore');
+var GroupsStore = require('../stores/GroupsStore');
 var GroupActions = require('../actions/GroupActions');
 
 function getState(){
 	return {
-		groups: GroupStore.getAllGroups()
+		groups: GroupsStore.getAllGroups()
 	};
 }
 
-var GroupView = React.createClass({
+var GroupsView = React.createClass({
 	getInitialState: function(){
 		return getState();
 	},
@@ -20,11 +20,11 @@ var GroupView = React.createClass({
 		this.setState(getState());
 	},
 	componentDidMount: function(){
-		GroupStore.addChangeListener(this._onChange);
-		GroupActions.fetch();
+		GroupsStore.addChangeListener(this._onChange);
+		GroupActions.fetchAll();
 	},
 	componentWillUnmount: function(){
-		GroupStore.removeChangeListener(this._onChange);
+		GroupsStore.removeChangeListener(this._onChange);
 	},
 	render: function(){
 		return(
@@ -44,4 +44,4 @@ var GroupView = React.createClass({
 	}
 });
 
-module.exports = GroupView;
+module.exports = GroupsView;

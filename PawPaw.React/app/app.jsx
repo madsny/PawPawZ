@@ -1,7 +1,7 @@
 ﻿'use strict';
 var React = require('react');
 var Router = require('react-router');
-var GroupView = require('./components/GroupView.jsx');
+var GroupsView = require('./components/GroupsView.jsx');
 var AddGroupView = require('./components/AddGroupView.jsx');
 
 var App = React.createClass({
@@ -16,7 +16,7 @@ var App = React.createClass({
 
 var Routes = (
     <Router.Route handler={App}>
-        <Router.Route name='groups' path='groups' handler={GroupView} />
+        <Router.Route name='groups' path='groups' handler={GroupsView} />
         <Router.Route name='addGroup' path='groups/add' handler={AddGroupView} />
         <Router.Redirect from='/' to='/groups' />
     </Router.Route>

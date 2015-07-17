@@ -4,20 +4,20 @@ var PawPawConstants = require('../constants/PawPawConstants');
 var GroupClient = require('../services/GroupClient');
 
 var GroupActions = {
-	fetch: function(){
+	fetchAll: function(){
 		PawPawDispatcher.dispatch({
-			actionType: PawPawConstants.GROUP_FETCH
+			actionType: PawPawConstants.GROUPS_FETCH
 		});
 		GroupClient.get()
 			.then(function(data){
 				PawPawDispatcher.dispatch({
-					actionType: PawPawConstants.GROUP_FETCH_SUCCESS,
+					actionType: PawPawConstants.GROUPS_FETCH_SUCCESS,
 					data: data
 				});
 			},
 			function(error){
 				PawPawDispatcher.dispatch({
-					actionType: PawPawConstants.GROUP_FETCH_FAIL,
+					actionType: PawPawConstants.GROUPS_FETCH_FAIL,
 					error: error
 				});
 			});

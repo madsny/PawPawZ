@@ -24,7 +24,7 @@ namespace PawPaw.WebApi.Api
         }
 
         [Route("groups")]
-        public IEnumerable<Group> GetALl()
+        public IEnumerable<Group> GetAll()
         {
             return _groupReader.GetAll();
         }

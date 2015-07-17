@@ -17,7 +17,7 @@ function fetchFailed(error){
 	_groups.errors.push(error);
 }
 
-var GroupStore = _.extend({}, EventEmitter.prototype, {
+var GroupsStore = _.extend({}, EventEmitter.prototype, {
 	getAllGroups: function(){
 		return _groups;
 	},
@@ -32,22 +32,22 @@ var GroupStore = _.extend({}, EventEmitter.prototype, {
 	}
 });
 
-GroupStore.dispatchToken = PawPawDispatcher.register(function(action){
+GroupsStore.dispatchToken = PawPawDispatcher.register(function(action){
 	switch(action.actionType){
-		case PawPawConstants.GROUP_FETCH:
-			GroupStore.emitChange();
+		case PawPawConstants.GROUPS_FETCH:
+			GroupsStore.emitChange();
 			break;
-		case PawPawConstants.GROUP_FETCH_SUCCESS:
+		case PawPawConstants.GROUPS_FETCH_SUCCESS:
 			loadGroups(action.data);
-			GroupStore.emitChange();
+			GroupsStore.emitChange();
 			break;
-		case PawPawConstants.GROUP_FETCH_FAIL:
+		case PawPawConstants.GROUPS_FETCH_FAIL:
 			fetchFailed(action.error);
-			GroupStore.emitChange();
+			GroupsStore.emitChange();
 			break;
 		default:
 	}
 	return true;
 });
 
-module.exports = GroupStore;
+module.exports = GroupsStore;
